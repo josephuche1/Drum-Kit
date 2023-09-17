@@ -3,15 +3,17 @@ let length = document.querySelectorAll(".drum").length;
 for(let i = 0; i < length; i++){
    document.querySelectorAll(".drum")[i].addEventListener("click", function (){
      let buttonHTML = document.querySelectorAll(".drum")[i].innerHTML;
-
+     
      makeSound(buttonHTML);
+     buttonAnimation(buttonHTML);
  });
 }
 
 document.addEventListener("keydown", function(event){
    let buttonKey = event.key;
-
+   
    makeSound(buttonKey);
+   buttonAnimation(buttonKey);
 })
 
 function makeSound(key){
@@ -56,7 +58,11 @@ function makeSound(key){
     }
 }
 
-function buttonAnimation(activekey){
+function buttonAnimation(activeKey){
    let currentKey = document.querySelector("."+activeKey);
    currentKey.classList.add("pressed");
+
+   setTimeout(function(){
+    currentKey.classList.remove("pressed");
+   }, 100);
 }
