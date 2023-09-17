@@ -8,6 +8,11 @@ for(let i = 0; i < length; i++){
  });
 }
 
+document.addEventListener("keydown", function(event){
+   let buttonKey = event.key;
+
+   makeSound(buttonKey);
+})
 
 function makeSound(key){
 
@@ -51,4 +56,7 @@ function makeSound(key){
     }
 }
 
-
+function buttonAnimation(activekey){
+   let currentKey = document.querySelector("."+activeKey);
+   currentKey.classList.add("pressed");
+}
